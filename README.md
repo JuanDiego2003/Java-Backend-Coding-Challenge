@@ -11,6 +11,9 @@ Participé en el **CaixaBank Java Backend Challenge** a través de la plataforma
 - **Docker**: Para gestionar contenedores y desplegar el proyecto de manera eficiente.
 - **JWT (JSON Web Tokens)**: Implementación de autenticación segura basada en tokens.
 - **Git**: Para el control de versiones y colaboración en el desarrollo.
+- **Postman**: Para el uso de los endpoints.
+
+> **Nota:** las rutas de login y register se puede acceder sin autenticación, pero, el resto de rutas tienen autenticación por bearer Token
 
 ---
 
