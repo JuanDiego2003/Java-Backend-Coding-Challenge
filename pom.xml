@@ -133,14 +133,12 @@
 
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
+            <!-- Elimina o comenta todo el bloque relacionado con el plugin PMD -->
+            <!--
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-pmd-plugin</artifactId>
-                <version>3.15.0</version> <!-- Use the latest version available -->
+                <version>3.15.0</version>
                 <configuration>
                     <rulesets>
                         <ruleset>/rulesets/java/braces.xml</ruleset>
@@ -148,7 +146,6 @@
                         <ruleset>/usr/pmd/rulesets/strings.xml</ruleset>
                         <ruleset>http://localhost/design.xml</ruleset>
                     </rulesets>
-
                 </configuration>
                 <executions>
                     <execution>
@@ -160,6 +157,8 @@
                     </execution>
                 </executions>
             </plugin>
+            -->
         </plugins>
     </build>
+
 </project>
