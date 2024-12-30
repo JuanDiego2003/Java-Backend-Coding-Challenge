@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puntos finales de la API y Ejemplos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        h1, h2 {
+            color: #007bff;
+        }
+        .endpoint {
+            margin-bottom: 20px;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        pre {
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin-top: 10px;
+        }
+        code {
+            color: #d63384;
+        }
+    </style>
+</head>
+<body>
+<h1>Puntos finales de la API y Ejemplos de Uso</h1>
+<p>Este documento describe los puntos finales de la API y proporciona ejemplos de solicitudes y respuestas para ayudar a
+    los desarrolladores a interactuar con el sistema.</p>
+
+<div class="endpoint">
+    <h2>Registro de Usuario</h2>
+    <p>Registra un nuevo usuario en el sistema.</p>
+    <h3>Solicitud</h3>
+    <pre>
+POST /api/users/register
+{
+    "name": "Nuwe Test",
+    "password": "NuweTest1$",
+    "email": "nuwe@nuwe.com"
+}
+        </pre>
+    <h3>Respuesta</h3>
+    <pre>
+{
+    "name": "Nuwe Test",
+    "email": "nuwe@nuwe.com",
+    "accountNumber": "19b332",
+    "accountType": "Main",
+    "hashedPassword": "$2a$10$vYWBxACqEIPeoT0O5b0faOHp4ITAHSBvoHDzBePW7tPqzpvqKLi6G"
+}
+        </pre>
+    <p><strong>Validación:</strong> Asegúrate de que no haya campos vacíos, que el correo sea válido y que la contraseña
+        cumpla con las reglas. Verifica que el correo no esté registrado previamente.</p>
+</div>
+
+<div class="endpoint">
+    <h2>Inicio de Sesión de Usuario</h2>
+    <p>Inicia sesión en un usuario y devuelve un token JWT.</p>
+    <h3>Solicitud</h3>
+    <pre>
+POST /api/users/login
+{
+    "identifier": "nuwe@nuwe.com",
+    "password": "NuweTest1$"
+}
+        </pre>
+    <h3>Respuesta</h3>
+    <pre>
+{
+    "token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxOWIzMzIiLCJpYXQiOjE3Mjk1NzEzNzUsImV4cCI6MTcyOTY1Nzc3NX0.6qLQi50B1StobsUusfxCSqLdKeKOYdBZ3qj5Lw5G9eAdqoV1Juz3jyh2xwWByG7iJtusrhYPb_I62ycptcH4MA"
+}
+        </pre>
+    <p><strong>Errores:</strong></p>
+    <ul>
+        <li><code>400</code> - Usuario no encontrado para el identificador dado.</li>
+        <li><code>401</code> - Credenciales incorrectas.</li>
+    </ul>
+</div>
+
+<div class="endpoint">
+    <h2>Obtener Información del Usuario</h2>
+    <p>Obtiene información detallada del usuario usando un token JWT.</p>
+    <h3>Respuesta</h3>
+    <pre>
+{
+    "name": "Nuwe Test",
+    "email": "nuwe@nuwe.com",
+    "accountNumber": "e62fa2",
+    "accountType": "Main",
+    "hashedPassword": "$2a$10$VNEntB38mHY.dJ9iDkgrjud2EZ/pWCC9IisqyKqL3cLjEM0L0zSZS"
+}
+        </pre>
+</div>
+
+<div class="endpoint">
+    <h2>Obtener Información de la Cuenta</h2>
+    <p>Recupera el saldo y la información de la cuenta.</p>
+    <h3>Respuesta</h3>
+    <pre>
+{
+    "accountNumber": "e62fa2",
+    "balance": 0.0,
+    "accountType": "Main"
+}
+        </pre>
+</div>
+
+<div class="endpoint">
+    <h2>Crear Nueva Cuenta</h2>
+    <p>Permite al usuario crear una nueva cuenta usando la cuenta principal como referencia.</p>
+    <h3>Solicitud</h3>
+    <pre>
+POST /api/account/create
+{
+    "accountNumber": "e62fa2",
+    "accountType": "Invest"
+}
+        </pre>
+    <h3>Respuesta</h3>
+    <pre>
+Nueva cuenta agregada exitosamente para el usuario
+        </pre>
+</div>
+
+<div class="endpoint">
+    <h2>Depositar Dinero</h2>
+    <p>Deposita dinero en la cuenta principal. Incluye cargos por montos superiores a 50000.</p>
+    <h3>Solicitud</h3>
+    <pre>
+POST /api/account/deposit
+{
+    "amount": 100000.0
+}
+        </pre>
+    <h3>Respuesta</h3>
+    <pre>
+{
+    "msg": "Dinero depositado exitosamente"
+}
+        </pre>
+</div>
+
+<div class="endpoint">
+    <h2>Retirar Dinero</h2>
+    <p>Retira dinero de la cuenta principal. Incluye cargos por montos superiores a 10000.</p>
+    <h3>Solicitud</h3>
+    <pre>
+POST /api/account/withdraw
+{
+    "amount": 20000.0
+}
+        </pre>
+    <h3>Respuesta</h3>
+    <pre>
+{
+    "msg": "Dinero retirado exitosamente"
+}
+        </pre>
+</div>
+
+<div class="endpoint">
+    <h2>Historial de Transacciones</h2>
+    <p>Obtiene el historial completo de transacciones para una cuenta.</p>
+    <h3>Respuesta</h3>
+    <pre>
+[
+    {
+        "id": 14,
+        "amount": 500.0,
+        "transactionType": "CASH_TRANSFER",
+        "transactionStatus": "PENDING",
+        "transactionDate": 1731547476117,
+        "sourceAccountNumber": "e62fa2",
+        "targetAccountNumber": "a14813"
+    },
+    {
+        "id": 13,
+        "amount": 100.0,
+        "transactionType": "CASH_TRANSFER",
+        "transactionStatus": "FRAUD",
+        "transactionDate": 1731547459984,
+        "sourceAccountNumber": "e62fa2",
+        "targetAccountNumber": "a14813"
+    }
+]
+        </pre>
+</div>
+</body>
+</html>
