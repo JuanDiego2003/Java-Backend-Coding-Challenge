@@ -25,9 +25,13 @@ public class SecurityConfig {
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/users/register", "/api/users/login", "/manual").permitAll() // Público
-                        .anyRequest().authenticated() // Protegido
+                        .anyRequest().authenticated()
                 )
-                .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
+                .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
+                .exceptionHandling(exceptionHandling ->
+                        exceptionHandling
+                                .accessDeniedPage("/manual")
+                );  // Redirige a /manual en caso de acceso denegado;
 
         return http.build();
     }
