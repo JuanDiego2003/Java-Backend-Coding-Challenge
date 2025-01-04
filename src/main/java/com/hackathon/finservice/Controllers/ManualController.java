@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class ManualController {
-    @GetMapping("/manual")
+    @GetMapping("/")
     public ResponseEntity<Resource> getManual() {
         Resource resource = new ClassPathResource("static/manual.html");
         return ResponseEntity.ok().contentType(MediaType.TEXT_HTML).body(resource);
