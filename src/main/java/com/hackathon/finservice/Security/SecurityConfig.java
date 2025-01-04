@@ -24,13 +24,13 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/users/register", "/api/users/login", "/manual").permitAll() // Público
+                        .requestMatchers("/api/users/register", "/api/users/login", "/").permitAll() // Público
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
                 .exceptionHandling(exceptionHandling ->
                         exceptionHandling
-                                .accessDeniedPage("/manual")
+                                .accessDeniedPage("/")
                 );  // Redirige a /manual en caso de acceso denegado;
 
         return http.build();
