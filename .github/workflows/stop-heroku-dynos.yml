@@ -1,0 +1,17 @@
+name: Stop Heroku Dynos
+
+on:
+  schedule:
+    - cron: '0 15 * * 1-5'  # Apagar a las 3 PM UTC de lunes a viernes
+
+jobs:
+  stop-dynos:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Stop Heroku Dynos
+        run: heroku ps:scale web=0 --app java-backend-coding-challenge
+        env:
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
