@@ -2,7 +2,15 @@ name: Start Heroku Dynos
 
 on:
   schedule:
+
+
+
+
+
+
     - cron: '0 9 * * 1-5'  # Encender a las 9 AM UTC de lunes a viernes
+
+
 
 jobs:
   start-dynos:
@@ -11,10 +19,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
+
+
       - name: Install Heroku CLI
         run: |
           curl https://cli-assets.heroku.com/install.sh | sh
           heroku --version  # Verificar si la CLI se instaló correctamente
+
 
       - name: Start Heroku Dynos
         run: heroku ps:scale web=1 --app java-backend-coding-challenge
