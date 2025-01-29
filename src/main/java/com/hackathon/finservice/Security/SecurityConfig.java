@@ -11,11 +11,9 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class SecurityConfig {
 
     private final JwtAuthenticationFilter jwtAuthenticationFilter;
-    private final TokenBlacklistService tokenBlacklistService;
 
     public SecurityConfig(JwtAuthenticationFilter jwtAuthenticationFilter, TokenBlacklistService tokenBlacklistService) {
         this.jwtAuthenticationFilter = jwtAuthenticationFilter;
-        this.tokenBlacklistService = tokenBlacklistService;
     }
 
     @Bean

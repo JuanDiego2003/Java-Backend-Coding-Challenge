@@ -1,6 +1,5 @@
 package com.hackathon.finservice.Security;
 
-import com.hackathon.finservice.Service.UserService;
 import org.springframework.lang.NonNull;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -20,12 +19,10 @@ import java.util.Collections;
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     private final JWTUtils jwtUtils;
-    private final UserService userService;
     private final TokenBlacklistService tokenBlacklistService; // Servicio para la lista negra
 
-    public JwtAuthenticationFilter(JWTUtils jwtUtils, UserService userService, TokenBlacklistService tokenBlacklistService) {
+    public JwtAuthenticationFilter(JWTUtils jwtUtils, TokenBlacklistService tokenBlacklistService) {
         this.jwtUtils = jwtUtils;
-        this.userService = userService;
         this.tokenBlacklistService = tokenBlacklistService;
     }
 

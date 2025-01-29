@@ -11,16 +11,26 @@ import java.util.Date;
 public class JWTUtils {
     @Value("${jwt.secret}")
     private String secretKey; // Llave secreta para JWT
+    private final TokenBlacklistService tokenBlacklistService; // Servicio para la lista negra
+
+    public JWTUtils(TokenBlacklistService tokenBlacklistService) {
+        this.tokenBlacklistService = tokenBlacklistService;
+    }
+
 
     public String generateToken(String email) {
         // 1 hora
         long expiration = 3600000;
-        return Jwts.builder()
-                .setSubject(email)
-                .setIssuedAt(new Date())
-                .setExpiration(new Date(System.currentTimeMillis() + expiration))
-                .signWith(SignatureAlgorithm.HS256, secretKey)
-                .compact();
+        String token;
+        do {
+            token = Jwts.builder()
+                    .setSubject(email)
+                    .setIssuedAt(new Date())
+                    .setExpiration(new Date(System.currentTimeMillis() + expiration))
+                    .signWith(SignatureAlgorithm.HS256, secretKey)
+                    .compact();
+        } while (tokenBlacklistService.isBlacklisted(token));
+        return token;
     }
 
     public String extractEmail(String token) {
