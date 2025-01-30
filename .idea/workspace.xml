@@ -5,23 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="38de3ff0-7bfd-4a21-b2ff-47cd7a3d6316" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/hackathon/finservice/Repositories/TokenRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/hackathon/finservice/Entities/Token.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/hackathon/finservice/Repositories/TokenRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackathon/finservice/Entities/Token.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hackathon/finservice/Entities/Token.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackathon/finservice/Security/JWTUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hackathon/finservice/Security/JWTUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackathon/finservice/Security/JwtAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hackathon/finservice/Security/JwtAuthenticationFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackathon/finservice/Security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hackathon/finservice/Security/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackathon/finservice/Security/TokenBlacklistService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hackathon/finservice/Security/TokenBlacklistService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/manual.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/manual.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/hackathon/finservice/Security/JWTUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/hackathon/finservice/Security/JWTUtils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/hackathon/finservice/Security/JwtAuthenticationFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/hackathon/finservice/Security/JwtAuthenticationFilter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/hackathon/finservice/Security/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/hackathon/finservice/Security/SecurityConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/hackathon/finservice/Security/TokenBlacklistService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/hackathon/finservice/Security/TokenBlacklistService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/manual.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/manual.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

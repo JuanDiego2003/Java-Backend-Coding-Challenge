@@ -1,5 +1,6 @@
 com\hackathon\finservice\Entities\User.class
 com\hackathon\finservice\DTO\RegisterResponse.class
+com\hackathon\finservice\Entities\Token.class
 com\hackathon\finservice\Controllers\ManualController.class
 com\hackathon\finservice\Controllers\DashboardController.class
 com\hackathon\finservice\Util\JsonUtil.class
@@ -14,6 +15,7 @@ com\hackathon\finservice\Entities\TransactionStatus.class
 com\hackathon\finservice\Security\TokenBlacklistService.class
 com\hackathon\finservice\Security\SecurityConfig.class
 com\hackathon\finservice\DTO\RegisterRequest.class
+com\hackathon\finservice\Repositories\TokenRepository.class
 com\hackathon\finservice\Entities\TransactionType.class
 com\hackathon\finservice\Repositories\UserRepository.class
 com\hackathon\finservice\Service\AccountService.class
